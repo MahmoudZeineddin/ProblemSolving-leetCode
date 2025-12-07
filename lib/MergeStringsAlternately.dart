@@ -1,33 +1,3 @@
-class MergeStringsAlternately {
-  String mergeString(String word1, String word2) {
-    String firstWord = word1.toLowerCase();
-    String secondWord = word2.toLowerCase();
-    String mergeString = '';
-
-    bool cond = (firstWord.length >= secondWord.length);
-    int loopCount = 0;
-    loopCount = cond
-        ? loopCount = firstWord.length - 1
-        : loopCount = secondWord.length - 1;
-
-    for (int i = 0; i <= loopCount; i++) {
-      if (firstWord.length == i) {
-        mergeString = mergeString += secondWord.substring(i);
-        break;
-      } else if (secondWord.length == i) {
-        mergeString = mergeString += firstWord.substring(i);
-        break;
-      } else {
-        mergeString = mergeString += firstWord[i];
-        mergeString = mergeString += secondWord[i];
-      }
-    }
-    return mergeString;
-  }
-}
-
-
-
 
 
 /*
@@ -71,3 +41,36 @@ Constraints:
 word1 and word2 consist of lowercase English letters.
 
 */
+
+
+
+class MergeStringsAlternately {
+  String mergeString(String word1, String word2) {
+    String firstWord = word1.toLowerCase();
+    String secondWord = word2.toLowerCase();
+    String mergeString = '';
+
+    bool cond = (firstWord.length >= secondWord.length);
+    int loopCount = 0;
+    loopCount = cond
+        ? loopCount = firstWord.length - 1
+        : loopCount = secondWord.length - 1;
+
+    for (int i = 0; i <= loopCount; i++) {
+      if (firstWord.length == i) {
+        mergeString = mergeString += secondWord.substring(i);
+        break;
+      } else if (secondWord.length == i) {
+        mergeString = mergeString += firstWord.substring(i);
+        break;
+      } else {
+        mergeString = mergeString += firstWord[i];
+        mergeString = mergeString += secondWord[i];
+      }
+    }
+    return mergeString;
+  }
+}
+
+
+
