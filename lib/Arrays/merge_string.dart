@@ -1,5 +1,3 @@
-
-
 /*
 1768. Merge Strings Alternately
 
@@ -40,9 +38,8 @@ Constraints:
 1 <= word1.length, word2.length <= 100
 word1 and word2 consist of lowercase English letters.
 
+
 */
-
-
 
 class MergeStringsAlternately {
   String mergeString(String word1, String word2) {
@@ -71,6 +68,3 @@ class MergeStringsAlternately {
     return mergeString;
   }
 }
-
-
-

@@ -46,6 +46,9 @@ candies[i] +extraCandies> candies[i] 3- عمل loop ثاني يفحص هذا ا�
 فحص هل كل العناصر =true
 returen [i] ture
 else [i] false
+
+Time taken:
+first day: 1:20 hours
 */
 
 class Solution {
@@ -53,17 +56,25 @@ class Solution {
     List<bool> isAllTrue = [];
     for (int i = 0; i < candies.length; i++) {
       List<bool> isTheGreatest = [];
-      for (int j = 0; j < candies.length; j++) {
-        if (candies[j] + extraCandies < candies[j]) {
-          // الخطأ في هذا الشرط
-          isTheGreatest.add(false);
-        } else {
-          isTheGreatest.add(true);
-        }
-        if (isTheGreatest.contains(false)) {
+
+      int kidWithCandy = candies[i] + extraCandies;
+      for (int value in candies) {
+        if (value >= kidWithCandy) {
           isAllTrue.add(false);
-          continue;
-        } else if (j == candies.length - 1) {
+          break;
+        } else {
+          isAllTrue.add(true);
+        }
+      }
+      for (int j = 0; j < candies.length; j++) {
+        if (candies[j] + extraCandies >= candies[j]) {
+          isTheGreatest.add(true);
+        } else {
+          isTheGreatest.add(false);
+          isAllTrue.add(false);
+          break;
+        }
+        if (j == candies.length - 1) {
           isAllTrue.add(true);
         }
       }

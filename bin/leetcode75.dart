@@ -11,5 +11,5 @@ void main() {
   //ABA AB LEET CODE ABABAB ABAB ABCABC ABC
 
   Solution obj1 = Solution();
-  print(obj1.kidsWithCandies([12, 1, 12], 10));
+  print(obj1.kidsWithCandies([2, 3, 5, 1, 3], 3));
 }
