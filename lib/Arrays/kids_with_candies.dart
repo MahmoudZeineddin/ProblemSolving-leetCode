@@ -39,47 +39,35 @@ n == candies.length
 1 <= candies[i] <= 100
 1 <= extraCandies <= 50
 
-1- إعداد دالة ترجع قائمة من نوع bool
-2-عمل loop  بحسب طول الcandies,إذا كان candies[i] +extraCandies
-candies[i] +extraCandies> candies[i] 3- عمل loop ثاني يفحص هذا الشرط إذا صح
-ضيف true على الarray تعت greagtesNumber
-فحص هل كل العناصر =true
-returen [i] ture
-else [i] false
-
+المطلوب مني:
+ إرجاع list of bool
+بتحتوي على إجابة سؤال هل
+ kidscandies[0]+ extraCandies >= thelargestnumber
+الخوازيمة:
+kidscandies1-إيجاد أكبر قيمة في ال
+2-فحص هل kidscandies[0]+ extraCandies >= thelargestnumber 
+3-إرجاع النتيجة.
 Time taken:
 first day: 1:20 hours
+secound day: 1 hour
+third day: 40 mints
 */
 
 class Solution {
   List<bool> kidsWithCandies(List<int> candies, int extraCandies) {
-    List<bool> isAllTrue = [];
+    List<bool> result = [];
+    List<int> candiesCopy = [...candies];
+    candiesCopy.sort();
+    int max = candiesCopy.last;
     for (int i = 0; i < candies.length; i++) {
-      List<bool> isTheGreatest = [];
-
       int kidWithCandy = candies[i] + extraCandies;
-      for (int value in candies) {
-        if (value >= kidWithCandy) {
-          isAllTrue.add(false);
-          break;
-        } else {
-          isAllTrue.add(true);
-        }
-      }
-      for (int j = 0; j < candies.length; j++) {
-        if (candies[j] + extraCandies >= candies[j]) {
-          isTheGreatest.add(true);
-        } else {
-          isTheGreatest.add(false);
-          isAllTrue.add(false);
-          break;
-        }
-        if (j == candies.length - 1) {
-          isAllTrue.add(true);
-        }
+      if (kidWithCandy >= max) {
+        result.add(true);
+      } else {
+        result.add(false);
       }
     }
 
-    return isAllTrue;
+    return result;
   }
 }
