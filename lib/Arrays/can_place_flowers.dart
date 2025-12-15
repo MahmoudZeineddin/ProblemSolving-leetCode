@@ -52,26 +52,27 @@ class Solution {
     List<int> newflowerbed = flowerbed;
     print(newflowerbed.length);
     for (int i = 0; i < newflowerbed.length; i++) {
-      if (flowerbed[i] == 0) {
-        if (i == 0 && newflowerbed[i] == 0 && newflowerbed[i + 1] == 0) {
+      if (flowerbed[i] == 0 && newflowerbed.length == 1) {
+        numberOfAvailable += 1;
+        return true;
+      } else if (i == 0 && newflowerbed[i] == 0 && newflowerbed[i + 1] == 0) {
+        numberOfAvailable += 1;
+        newflowerbed[i] = 1;
+      } else if (i == newflowerbed.length - 1 &&
+          newflowerbed[i] == 0 &&
+          newflowerbed[i - 1] == 0) {
+        numberOfAvailable += 1;
+        newflowerbed[i] = 1;
+      } else if (i > 0 && i < newflowerbed.length - 1) {
+        if (newflowerbed[i] == 0 &&
+            newflowerbed[i - 1] == 0 &&
+            newflowerbed[i + 1] == 0) {
           numberOfAvailable += 1;
           newflowerbed[i] = 1;
-        } else if (i == newflowerbed.length - 1 &&
-            newflowerbed[i] == 0 &&
-            newflowerbed[i - 1] == 0) {
-          numberOfAvailable += 1;
-          newflowerbed[i] = 1;
-        } else if (i > 0 && i < newflowerbed.length - 1) {
-          if (newflowerbed[i] == 0 &&
-              newflowerbed[i - 1] == 0 &&
-              newflowerbed[i + 1] == 0) {
-            numberOfAvailable += 1;
-            newflowerbed[i] = 1;
-          }
         }
-        if (numberOfAvailable >= n) {
-          return true;
-        }
+      }
+      if (numberOfAvailable >= n) {
+        return true;
       }
     }
     return numberOfAvailable >= n;
