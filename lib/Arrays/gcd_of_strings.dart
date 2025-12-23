@@ -41,7 +41,6 @@ str1 and str2 consist of English uppercase letters.
 5-طباعة النص
 
 */
-import 'dart:ffi';
 
 class Solution {
   String gcdOfStrings(String str1, String str2) {
