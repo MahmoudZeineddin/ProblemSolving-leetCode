@@ -40,45 +40,30 @@ library;
 
 class Solution {
   String reverseWords(String s) {
-    List<dynamic> wordsReversed = [];
+    List<String> wordsReversed = [];
+    String newWord = "";
     s = s.trim();
-    s = s.trimLeft();
-    s = s.trimRight();
     wordsReversed = wordsReversed = s.split(' ');
-    for (int i = 0; i < s.length; i++) {
-      if (s[i] != " ") {
-        if (i < s.length - 2 && s[i + 1] != " " && s[i + 2] != " ") {
-          print(s.substring(i, i + 1));
-        }
+    for (int i = wordsReversed.length - 1; i >= 0; i--) {
+      if (wordsReversed[i] != "") {
+        newWord += "${wordsReversed[i]} ";
       }
     }
-    // wordsReversed = wordsReversed.reversed.toList;
-    /*
-    for (int i = 0; i < s.length; i++) {
-      int index = 0;
-      String word;
-      if (s[i] == " ") {
-        spaceFind.add(i);
-      }
-      
-      if (spaceFind.isNotEmpty &&
-          spaceFind.length >= 2 &&
-          !s.substring(spaceFind[index], spaceFind[index + 1]).contains(" ")) {
-        word = s.substring(spaceFind[index], spaceFind[index + 1]);
-        wordsReversed.add(word);
-      }
-     
-    }
-   
-   
-     */
-    print(wordsReversed);
-    return s;
+    return newWord;
   }
+
+  /*
+  String reverseWords(String s) {
+    // 1. التنظيف والتقطيع باستخدام Regex للتعامل مع أي عدد من الفراغات
+    // 2. الفلترة للتأكد من عدم وجود نصوص فارغة
+    // 3. العكس ثم الدمج
+    return s.trim().split(RegExp(r'\s+')).reversed.join(' ');
+  }
+  */
 }
 
 void main() {
   var s = Solution();
-  var result = s.reverseWords("  the sky.    is blue     ");
+  var result = s.reverseWords("the sky is blue");
   print(result);
 }
