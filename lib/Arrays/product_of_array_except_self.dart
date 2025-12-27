@@ -37,14 +37,18 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 
 class Solution {
   List<int> productExceptSelf(List<int> nums) {
-    List<int> answer = [];
+    /*
+    first selotion
+    List<int> answer = List.filled(nums.length, 1);
     for (int i = 0; i < nums.length; i++) {
-      for (int j = 1; j < nums.length; j++) {
-        int productOfAnswer = 1;
-        productOfAnswer *= nums[j];
-        print(productOfAnswer);
+      for (int j = 0; j < nums.length; j++) {
+        if (i != j) {
+          answer[i] = answer[i] * nums[j];
+        }
       }
     }
+    */
+    // تحسين الكود لأن الكود السابق قلي Time Limit Exceeded O(n^2)
 
     return nums;
   }
@@ -52,6 +56,6 @@ class Solution {
 
 void main() {
   var s = Solution();
-  var result = s.productExceptSelf([1, 2, 3, 4]);
+  var result = s.productExceptSelf([-1, 1, 0, -3, 3]);
   print(result);
 }
